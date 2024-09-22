@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: countrybank-deployment
+spec:
+  replicas: 6 # You can adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: countrybank
+  template:
+    metadata:
+      labels:
+        app: countrybank
+    spec:
+      containers:
+        - name: countrybank
+          image: yash5090/countrybank:latest # Replace with the actual image tag
+          ports:
+            - containerPort: 8000 # Replace with the port your Tetris game listens on
