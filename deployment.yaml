@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: countrybank-deployment
+spec:
+  replicas: 6  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: countrybank
+  template:
+    metadata:
+      labels:
+        app: countrybank
+    spec:
+      containers:
+      - name: countrybank
+        image: yash5090/countrybank:latest
+        ports:
+        - containerPort: 8000
